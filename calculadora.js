@@ -1,9 +1,19 @@
 function calculadora() {
   const operacao = Number(prompt('Escolha uma operação:\n 1 - Soma (+)\n 2 - Subtração (-)\n 3 - Multiplicação (*)\n 4 - Divisão real (/)\n 5 - Divisão inteira (%)\n 6 - Potenciação (**)'));
 
+if (!operacao || operacao >= 7) {
+  alert('Erro - operação inválida!');
+  calculadora();
+} else {
+
 let n1 = Number(prompt('Insira o primeiro valor:'));
 let n2 = Number(prompt('Insira o segundo valor:'));
 let resultado;
+
+if (!n1 || !n2) {
+  alert('Erro - parâmetros inválidos!');
+  calculadora();
+} else {
 
 function soma() {
   resultado = n1 + n2;
@@ -46,10 +56,11 @@ function novaOperacao() {
   } else {
       alert('Digite uma opção válida!');
       novaOperacao();
+    }
   }
 }
 
-if (operacao == 1) {
+/* if (operacao == 1) {
   soma();
 } else if (operacao ==2) {
   subtracao();
@@ -61,8 +72,30 @@ if (operacao == 1) {
   divisaoInteira();
 } else if (operacao == 6) {
   potenciacao();
+} */
+
+switch (operacao) {
+  case 1:
+    soma();
+    break;
+case 2:
+    subtracao();
+    break;
+case 3:
+    multiplicacao();
+    break;
+case 4:
+    divisaoReal();
+    break;
+case 5:
+    divisaoInteira();
+    break;
+case 6:
+    potenciacao();
+    break;
 }
 
-}
+    }
+  }
 
 calculadora();
